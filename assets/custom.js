@@ -88,12 +88,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const title = button.dataset.title;
         const price = button.dataset.price;
         const description = button.dataset.description;
-        const featured_media = button.dataset.featured_media;
+        const featured_media = button.dataset.image;
         const url = button.dataset.url;
 
         titleEl.textContent = title;
         priceEl.textContent = price;
-        descriptionEl.textContent = description;
+        descriptionEl.innerHTML = description;
         imageEl.src = featured_media
         urlEl.href = url
 
