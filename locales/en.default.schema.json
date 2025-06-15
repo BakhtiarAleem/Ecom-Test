@@ -684,6 +684,18 @@
         "name": "Custom Liquid"
       }
     },
+    "gift-guide": {
+      "name": "Gift Guide",
+      "settings": {
+        "custom_liquid": {
+          "label": "Gift Guide",
+          "info": "Add app snippets or other code to create advanced customizations."
+        }
+      },
+      "presets": {
+        "name": "Gift Guide"
+      }
+    },
     "featured-blog": {
       "name": "Blog posts",
       "settings": {
