@@ -74,4 +74,35 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    const modal = document.getElementById("product-modal");
+    const closeBtn = modal.querySelector(".product-close");
+    const titleEl = document.getElementById("modal-title");
+    const priceEl = document.getElementById("modal-price");
+
+    document.querySelectorAll(".open-modal-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const title = button.dataset.title;
+        const price = button.dataset.price;
+
+        titleEl.textContent = title;
+        priceEl.textContent = price;
+
+        modal.classList.remove("hidden");
+      });
+    });
+
+    
+    closeBtn.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+      }
+    });
+
+
+
 });
