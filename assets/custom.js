@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             overlay.style.setProperty('--color', color);
 
+            if(color === '#FFF544'){
+                btn.style('color', '#fff');
+            }
+            else{
+                btn.style('color', '#000');
+            }
+
             // Animate on hover
             btn.addEventListener("mouseenter", () => {
                 gsap.to(overlay, {
@@ -54,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             btn.addEventListener("mouseleave", () => {
                 gsap.set(overlay, {
-                    x: '-100%'
+                    x: '-100%',
+                    duration: 0.5,
+                    ease: "power2.out"
                 });
             });
         });
