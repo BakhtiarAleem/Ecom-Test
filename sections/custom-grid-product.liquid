@@ -130,7 +130,11 @@
 <button class="open-modal-btn"
   data-title="{{ product.title }}"
   data-price="{{ product.price | money }}"
-  data-product="{{ product }}">
+  data-description="{{ product.description }}"
+  data-image="{{ product.featured_media | image_url: width: 533 }}"
+  data-url="{{ product.url }}"
+
+>
   View More
 </button>
 {% comment %} modal box end {% endcomment %}
@@ -140,8 +144,20 @@
       <div id="product-modal" class="product-modal hidden">
   <div class="product-modal-content">
     <span class="product-close">&times;</span>
-    <h2 id="modal-title"></h2>
-    <p id="modal-price"></p>
+    <div class="modal-left">
+      <img id="modal-image" src="{{ 'placeholder.png' | asset_url }}" width="400" height="400" alt="Product image"/>
+    </div>
+    <div class="modal-right">
+      <h2 id="modal-title" class="modal--title"></h2>
+    <p id="modal-price"  class="modal-price"></p>
+    <p id="modal-description"  class="modal-description"></p>
+    </div>
+    <div class="modal-bottom">
+        <a id="modal-add-cart" class="add-to-cart-modal" href="">
+          Add to Cart
+        </a>
+    </div>
+    <p></p>
   </div>
 </div>
     </div>

@@ -79,15 +79,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeBtn = modal.querySelector(".product-close");
     const titleEl = document.getElementById("modal-title");
     const priceEl = document.getElementById("modal-price");
+    const descriptionEl = document.getElementById("modal-description");
+    const imageEl = document.getElementById("modal-image");
+    const urlEl = document.getElementById("modal-add-cart");
 
     document.querySelectorAll(".open-modal-btn").forEach(button => {
       button.addEventListener("click", () => {
         const title = button.dataset.title;
         const price = button.dataset.price;
-        const product = button.dataset.product;
-        console.log('product', product);
+        const description = button.dataset.description;
+        const featured_media = button.dataset.featured_media;
+        const url = button.dataset.url;
+
         titleEl.textContent = title;
         priceEl.textContent = price;
+        descriptionEl.textContent = description;
+        imageEl.src = featured_media
+        urlEl.href = url
 
         modal.classList.remove("hidden");
       });
