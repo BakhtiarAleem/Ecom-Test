@@ -84,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
       button.addEventListener("click", () => {
         const title = button.dataset.title;
         const price = button.dataset.price;
-
+        const product = button.dataset.product;
+        console.log('product', product);
         titleEl.textContent = title;
         priceEl.textContent = price;
 
