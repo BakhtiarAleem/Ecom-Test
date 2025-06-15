@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const descriptionEl = document.getElementById("modal-description");
     const imageEl = document.getElementById("modal-image");
     const urlEl = document.getElementById("modal-add-cart");
+     const variantsEl = document.getElementById("variants");
 
     document.querySelectorAll(".open-modal-btn").forEach(button => {
       button.addEventListener("click", () => {
@@ -90,6 +91,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const description = button.dataset.description;
         const featured_media = button.dataset.image;
         const url = button.dataset.url;
+        const variantsData = JSON.parse(button.dataset.variants);
+
+        variantsData.forEach(variant => {
+  console.log("Variant title:", variant.title);
+  console.log("Variant ID:", variant.id);
+    console.log("Variant all:", variant);
+});
 
         titleEl.textContent = title;
         priceEl.textContent = price;
