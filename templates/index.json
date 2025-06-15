@@ -30,10 +30,10 @@
       "name": "Custom Grid Product",
       "settings": {
         "collection": "frontpage",
-        "products_to_show": 4,
+        "products_to_show": 8,
         "custom_full_width": true,
         "title": "Tisso vison in the wild",
-        "heading_size": "h1",
+        "heading_size": "h0",
         "columns_desktop": 4,
         "columns_mobile": "2",
         "image_ratio": "adapt",
