@@ -68,30 +68,6 @@
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
 
-    .choose-gift-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #FFF544;
-    color: #000000;
-    font-size: 16px;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .choose-gift-btn .btn-icon {
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    vertical-align: top;
-    margin-left: 29px;
-    width: 25px;
-  }
-  .header-announcement {
-    font-size: 16px;
-    color: #000;
-    font-weight: 400;
-  }
-
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
@@ -126,8 +102,6 @@
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
-
-
 {%- liquid
   for block in section.blocks
     if block.type == '@app'
@@ -149,7 +123,7 @@
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
   class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
-> 
+>
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -173,9 +147,6 @@
       endif
     -%}
 
-
-<div class="header-menu-bar">
-      
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
@@ -208,14 +179,6 @@
         </h1>
       {%- endif -%}
     {%- endif -%}
-
-
-    {% comment %} calling Announcement Bar Data {% endcomment %}
-     {%- if section.settings.announcement_label != '' -%}
-      <div class="header-announcement">
-        {{ section.settings.announcement_label }}
-        </div>
-      {% endif %}
 
     {%- liquid
       if section.settings.menu != blank
@@ -260,7 +223,6 @@
       {%- endif -%}
     {%- endif -%}
 
-
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -285,18 +247,7 @@
           </localization-form>
         {%- endif -%}
       </div>
-      <div class="choose-gift">
-        <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-color-fill" data-color="#000">
-          <span class="overlay"></span>
-          <span class="btn-content">
-          {{ section.settings.choose_gift_label }}
-          <div class="btn-icon">
-            <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
-          </div>
-          </span>
-        </a>
-      </div>
-      {% comment %} {% render 'header-search', input_id: 'Search-In-Modal' %}
+      {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a
@@ -349,8 +300,7 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
-      </a> {% endcomment %}
-    </div>
+      </a>
     </div>
   </header>
 </{{ header_tag }}>
@@ -697,24 +647,6 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
-    },
-    {
-      "type": "text",
-      "id": "choose_gift_link",
-      "label": "Choose gift Link",
-      "default": "/collections/gifts"
-    },
-    {
-      "type": "text",
-      "id": "choose_gift_label",
-      "label": "Choose Gift Label",
-      "default": "choose gift"
-    },
-      {
-      "type": "text",
-      "id": "announcement_label",
-      "label": "Announcement Label",
-      "default": "Find the ideal gift for your loved ones."
     }
   ],
   "blocks": [

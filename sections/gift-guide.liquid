@@ -1,6 +1,36 @@
 <!-- sections/gift-guide.liquid -->
 
 <section class="gift-guide-section">
+  <div class="top-bar">
+    <div class="logo">
+      <img
+        src="{{ section.settings.logo | image_url: width: 890 }}"
+        alt="Gift Guide Background"
+        width="{{ section.settings.logo.width | default: 890 }}"
+        height="{{ section.settings.logo.height | default: 420 }}"
+      >
+    </div>
+
+    {% comment %} calling Announcement Bar Data {% endcomment %}
+    {%- if section.settings.announcement_label != '' -%}
+      <div class="header-announcement">
+        {{ section.settings.announcement_label }}
+      </div>
+    {% endif %}
+
+    <div class="choose-gift">
+      <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-color-fill" data-color="#000">
+        <span class="overlay"></span>
+        <span class="btn-content">
+          {{ section.settings.choose_gift_label }}
+          <div class="btn-icon">
+            <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+          </div>
+        </span>
+      </a>
+    </div>
+  </div>
+
   <div class="gift-guide-wrapper">
     {% if section.settings.image_top != blank %}
       <div class="gift-guide-top-image animate-from-top">
@@ -16,13 +46,13 @@
       <div class="gift-guide-text animate-fade-in">
         <h2>{{ section.settings.heading }}</h2>
         <p>{{ section.settings.subheading }}</p>
-        <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill"  data-color="#FFF544">
+        <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
           <span class="overlay"></span>
           <span class="btn-content">
-          {{ section.settings.buttonLabel }}
-          <div class="btn-icon">
-            <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
-          </div>
+            {{ section.settings.buttonLabel }}
+            <div class="btn-icon">
+              <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+            </div>
           </span>
         </a>
       </div>
@@ -47,7 +77,13 @@
     background-color: #fff;
     overflow: hidden;
   }
-
+  .top-bar{
+    display: flex;
+      background-color: #F5F5F5;
+    width: 100%;
+    align-content: center;
+    justify-content: space-between;
+  }
   .gift-guide-wrapper {
     margin: 0 auto;
     position: relative;
@@ -130,6 +166,29 @@
   "tag": "section",
   "class": "gift-guide",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "choose_gift_link",
+      "label": "Choose gift Link",
+      "default": "/collections/gifts"
+    },
+    {
+      "type": "text",
+      "id": "choose_gift_label",
+      "label": "Choose Gift Label",
+      "default": "choose gift"
+    },
+    {
+      "type": "text",
+      "id": "announcement_label",
+      "label": "Announcement Label",
+      "default": "Find the ideal gift for your loved ones."
+    },
     {
       "type": "text",
       "id": "heading",
