@@ -7,7 +7,10 @@
           padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
           padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
         }
-
+        .custom-grid-section{
+          position: relative;
+        z-index: 9;
+        }
     .full-width-feature-section .page-width
      {
         width: 100%;
