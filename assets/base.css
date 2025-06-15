@@ -111,7 +111,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   align-items: center;
   justify-content: space-between;
 }
-
+.full-width-feature-section{
+  
+}
 /* custom css end */
 
 @media screen and (min-width: 750px) {
