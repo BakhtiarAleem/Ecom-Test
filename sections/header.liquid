@@ -68,6 +68,25 @@
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
 
+    .choose-gift-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #FFF544;
+    color: #000000;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .choose-gift-btn .btn-icon {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    margin-left: 29px;
+    width: 25px;
+  }
+
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
@@ -101,6 +120,28 @@
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      {% comment %} button shake {% endcomment %}
+        const btn = document.querySelector(".btn-shake");
+
+        const hoverTL = gsap.timeline({ paused: true, repeat: -1, yoyo: true })
+          .to(btn, { x: 5, duration: 0.1 })
+          .to(btn, { x: -5, duration: 0.1 });
+
+        btn.addEventListener("mouseenter", () => hoverTL.play());
+        btn.addEventListener("mouseleave", () => {
+          hoverTL.pause();
+          gsap.to(btn, { x: 0, duration: 0.2 }); // reset position
+        });
+
+    }
+  });
+</script>
+
+
+
 
 {%- liquid
   for block in section.blocks
@@ -223,6 +264,10 @@
       {%- endif -%}
     {%- endif -%}
 
+    {% comment %} calling Announcement Bar Data {% endcomment %}
+    {% section 'announcement-bar' %}
+
+
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -246,6 +291,14 @@
             {%- endform -%}
           </localization-form>
         {%- endif -%}
+      </div>
+      <div class="choose-gift">
+        <a href="{{ section.settings.choose_gift }}" class="choose-gift-btn btn-shake">
+          {{ section.settings.label }}
+          <div class="btn-icon">
+            <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+          </div>
+        </a>
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
@@ -647,6 +700,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
+    },
+    {
+      "type": "text",
+      "id": "choose_gift",
+      "label": "choose gift",
+      "default": "/collections/gifts"
     }
   ],
   "blocks": [
