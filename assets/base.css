@@ -111,8 +111,13 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   align-items: center;
   justify-content: space-between;
 }
-.full-width-feature-section{
-  
+.full-width-feature-section .collection__title {
+    width: 100%;
+    max-width: none;
+}
+.full-width-feature-section slider-component{
+    width: 100%;
+    max-width: none;
 }
 /* custom css end */
 
