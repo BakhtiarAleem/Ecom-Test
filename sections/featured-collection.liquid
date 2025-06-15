@@ -59,7 +59,7 @@
 -%}
 
 <div
-  class="color-{{ section.settings.color_scheme }} isolate gradient {% if section.settings.full_width %}full-width-feature-section{% endif %}"
+  class="color-{{ section.settings.color_scheme }} isolate gradient {% if section.settings.custom_full_width %}full-width-feature-section{% endif %}"
 >
   <div
     class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
@@ -225,12 +225,12 @@
       "default": 4,
       "label": "t:sections.featured-collection.settings.products_to_show.label"
     },
-    {
+  {
       "type": "checkbox",
-      "id": "full_width",
+      "id": "custom_full_width",
       "label": "Full Width",
       "default": false
-    },     
+    },
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_text.content"
