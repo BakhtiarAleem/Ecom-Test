@@ -3,24 +3,45 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-      }
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        }
 
-  .full-width-feature-section .page-width
+    .full-width-feature-section .page-width
+     {
+        width: 100%;
+        max-width: none;
+    }
+    .custom_card
    {
       width: 100%;
-      max-width: none;
+  }
+  .custom_card .custom_card_media{
+        width: 100%;
+        cursor: pointer;
+  }
+
+  .custom_card .custom_card_media img{
+            height: auto;
+                transition: 0.3s ease-in-out;
+      width: 100%;
+        transform: scale(1);
+  }
+
+  .custom_card .custom_card_media:hover img {
+      transition: 0.3s ease-in-out;
+      transform: scale(1.4);
   }
 
 
-      @media screen and (min-width: 750px) {
-        .section-{{ section.id }}-padding {
-          padding-top: {{ section.settings.padding_top }}px;
-          padding-bottom: {{ section.settings.padding_bottom }}px;
+
+        @media screen and (min-width: 750px) {
+          .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
         }
-      }
 {%- endstyle -%}
 
 <div class="custom-grid-section color-{{ section.settings.color_scheme }} isolate gradient section-{{ section.id }}-padding {% if section.settings.custom_full_width %}full-width-feature-section{% endif %}">
@@ -51,11 +72,13 @@
               </div>
             </div>
           </div>
-          {% comment %} {% render 'card-product',
-            card_product: product,
-            media_aspect_ratio: section.settings.image_ratio,
-            show_vendor: section.settings.show_vendor
-          %} {% endcomment %}
+          {% comment %}
+            {% render 'card-product',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_vendor: section.settings.show_vendor
+            %}
+          {% endcomment %}
         </div>
       {%- endfor -%}
     </div>
