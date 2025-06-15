@@ -296,6 +296,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {% comment %} GSAP Animation CDN {% endcomment %}
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
