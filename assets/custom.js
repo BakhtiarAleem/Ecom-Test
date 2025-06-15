@@ -35,42 +35,29 @@
         });
 
 
-        const colorOverlap = document.querySelectorAll(".btn-color-overlap");
+document.querySelectorAll('.btn-color-fill').forEach((btn) => {
+  const color1 = btn.getAttribute("data-color1") || "#ff4081";
+  const color2 = btn.getAttribute("data-color2") || "#40c4ff";
+  const beforeEl = btn;
 
-        colorOverlap.forEach((btn) => {
-        const color1 = btn.getAttribute("data-color1") || "#ff4081";
-        const color2 = btn.getAttribute("data-color2") || "#40c4ff";
+  // Set CSS vars for gradient
+  btn.style.setProperty('--color1', color1);
+  btn.style.setProperty('--color2', color2);
 
-        const hoverTL = gsap.timeline({ paused: true, repeat: -1, yoyo: true });
+  // Animate on hover
+  btn.addEventListener("mouseenter", () => {
+    gsap.to(btn.querySelector("::before"), {
+      x: "100%",
+      duration: 0.5,
+      ease: "power2.out"
+    });
+  });
 
-        hoverTL
-            .to(btn, {
-            x: 5,
-            backgroundColor: color1,
-            boxShadow: `0 0 10px ${color1}`,
-            duration: 0.1
-            })
-            .to(btn, {
-            x: -5,
-            backgroundColor: color2,
-            boxShadow: `0 0 10px ${color2}`,
-            duration: 0.1
-            });
-
-        btn.addEventListener("mouseenter", () => hoverTL.play());
-        btn.addEventListener("mouseleave", () => {
-            hoverTL.pause();
-            gsap.to(btn, {
-            x: 0,
-            backgroundColor: "",
-            boxShadow: "none",
-            duration: 0.2
-            });
-        });
+  btn.addEventListener("mouseleave", () => {
+    gsap.set(btn.querySelector("::before"), {
+      x: "-100%"
+    });
+  });
 });
-
-
-
-
     }
   });

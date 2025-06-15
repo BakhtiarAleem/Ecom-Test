@@ -119,6 +119,34 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     width: 100%;
     max-width: none;
 }
+
+.btn-color-fill {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.btn-color-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, var(--color1), var(--color2));
+  z-index: 0;
+  transition: none;
+}
+
+.btn-color-fill span {
+  position: relative;
+  z-index: 1;
+}
 /* custom css end */
 
 @media screen and (min-width: 750px) {
