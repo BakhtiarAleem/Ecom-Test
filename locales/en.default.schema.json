@@ -705,18 +705,6 @@
         "name": "Gift Guide"
       }
     },
-    "custom-grid-product": {
-      "name": "Custom Grid Product",
-      "settings": {
-        "custom_liquid": {
-          "label": "Custom Grid Product",
-          "info": "Add app snippets or other code to create advanced customizations."
-        }
-      },
-      "presets": {
-        "name": "Custom Grid Product"
-      }
-    },
     "featured-blog": {
       "name": "Blog posts",
       "settings": {
