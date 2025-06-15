@@ -17,7 +17,8 @@
         "subheading": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
         "buttonLink": "/collections/gifts",
         "buttonLabel": "Shop Now",
-        "backgroundImage": "shopify://shop_images/Frame_1.png"
+        "image_top": "shopify://shop_images/Frame_1.png",
+        "image_bottom": "shopify://shop_images/Frame.png"
       }
     },
     "featured_collection": {
