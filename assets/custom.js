@@ -34,5 +34,43 @@
         });
         });
 
+
+        const colorOverlap = document.querySelectorAll(".btn-color-overlap");
+
+        colorOverlap.forEach((btn) => {
+        const color1 = btn.getAttribute("data-color1") || "#ff4081";
+        const color2 = btn.getAttribute("data-color2") || "#40c4ff";
+
+        const hoverTL = gsap.timeline({ paused: true, repeat: -1, yoyo: true });
+
+        hoverTL
+            .to(btn, {
+            x: 5,
+            backgroundColor: color1,
+            boxShadow: `0 0 10px ${color1}`,
+            duration: 0.1
+            })
+            .to(btn, {
+            x: -5,
+            backgroundColor: color2,
+            boxShadow: `0 0 10px ${color2}`,
+            duration: 0.1
+            });
+
+        btn.addEventListener("mouseenter", () => hoverTL.play());
+        btn.addEventListener("mouseleave", () => {
+            hoverTL.pause();
+            gsap.to(btn, {
+            x: 0,
+            backgroundColor: "",
+            boxShadow: "none",
+            duration: 0.2
+            });
+        });
+});
+
+
+
+
     }
   });
