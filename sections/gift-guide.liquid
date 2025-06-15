@@ -183,6 +183,36 @@
     width: 100%;
     height: auto;
   }
+  .btn-color-fill {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.btn-color-fill .btn-content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-color-fill .overlay {
+    position: absolute;
+    top: 0;
+    left: -103%;
+    width: 102%;
+    height: 100%;
+    z-index: 1;
+    background: var(--color);
+}
 </style>
 
 {% schema %}
