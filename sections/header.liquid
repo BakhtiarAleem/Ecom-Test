@@ -265,9 +265,9 @@
     {%- endif -%}
 
     {% comment %} calling Announcement Bar Data {% endcomment %}
-      {% render 'announcement-bar-snippet' %}
-
-
+      <div class="header-announcement">
+        {{ section.settings.announcement_label }}
+        </div>
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -293,8 +293,8 @@
         {%- endif -%}
       </div>
       <div class="choose-gift">
-        <a href="{{ section.settings.choose_gift }}" class="choose-gift-btn btn-shake">
-          {{ section.settings.label }}
+        <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-shake">
+          {{ section.settings.choose_gift_label }}
           <div class="btn-icon">
             <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
           </div>
@@ -703,8 +703,20 @@
     },
     {
       "type": "text",
-      "id": "choose_gift",
-      "label": "choose gift",
+      "id": "choose_gift_link",
+      "label": "Choose gift Link",
+      "default": "/collections/gifts"
+    },
+    {
+      "type": "text",
+      "id": "choose_gift_label",
+      "label": "Choose Gift Label",
+      "default": "choose gift"
+    },
+      {
+      "type": "text",
+      "id": "announcement_label",
+      "label": "Announcement Label",
       "default": "/collections/gifts"
     }
   ],

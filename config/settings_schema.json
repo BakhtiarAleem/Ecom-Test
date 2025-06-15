@@ -1451,17 +1451,5 @@
         "default": "scheme-1"
       }
     ]
-  },
-  {
-    "type": "checkbox",
-    "id": "announcement_enabled",
-    "label": "Enable Announcement Bar",
-    "default": true
-  },
-  {
-    "type": "text",
-    "id": "announcement_text",
-    "label": "Announcement Text",
-    "default": "Free shipping on all orders!"
   }
 ]
