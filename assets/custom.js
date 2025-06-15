@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
             overlay.style.setProperty('--color', color);
 
             if(color === '#FFF544'){
-                btn.style('color', '#fff');
+                btn.style.color = '#fff';
             }
             else{
-                btn.style('color', '#000');
+                btn.style.color = '#000';
             }
 
             // Animate on hover
