@@ -3,92 +3,101 @@
 <section class="gift-guide-section">
   <div class="gift-guide-wrapper">
     {% if section.settings.image_top != blank %}
-    <div class="gift-guide-top-image">
-      <img 
-          src="{{ section.settings.image_top | image_url: width: 1600 }}" 
+      <div class="gift-guide-top-image animate-from-top">
+        <img
+          src="{{ section.settings.image_top | image_url: width: 1600 }}"
           alt="Gift Guide Background"
           width="{{ section.settings.image_top.width | default: 1600 }}"
           height="{{ section.settings.image_top.height | default: 390 }}"
         >
-    </div>
-    {% endif %}
-    <div class="gift-guide-bottom">
-    <div class="gift-guide-text animate-fade-in">
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.subheading }}</p>
-      <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn">
-        {{ section.settings.buttonLabel }}
-        <div class="btn-icon">
-          <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto" />
-        </div>
-      </a>
-    </div>
-    {% if section.settings.image_bottom != blank %}
-      <div class="gift-guide-bg">
-        <img 
-          src="{{ section.settings.image_bottom | image_url: width: 890 }}" 
-          alt="Gift Guide Background"
-          width="{{ section.settings.image_bottom.width | default: 890 }}"
-          height="{{ section.settings.image_bottom.height | default: 420 }}"
-        >
       </div>
     {% endif %}
+    <div class="gift-guide-bottom">
+      <div class="gift-guide-text animate-fade-in">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.subheading }}</p>
+        <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn">
+          {{ section.settings.buttonLabel }}
+          <div class="btn-icon">
+            <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+          </div>
+        </a>
+      </div>
+      {% if section.settings.image_bottom != blank %}
+        <div class="gift-guide-bg animate-from-right">
+          <img
+            src="{{ section.settings.image_bottom | image_url: width: 890 }}"
+            alt="Gift Guide Background"
+            width="{{ section.settings.image_bottom.width | default: 890 }}"
+            height="{{ section.settings.image_bottom.height | default: 420 }}"
+          >
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
 
 <style>
-.gift-guide-section {
-  position: relative;
-  padding: 60px 20px;
-  background-color: #fff;
-  overflow: hidden;
-}
+  .gift-guide-section {
+    position: relative;
+    padding: 60px 20px;
+    background-color: #fff;
+    overflow: hidden;
+  }
 
-.gift-guide-wrapper {
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .gift-guide-wrapper {
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.gift-guide-text {
-  max-width: 600px;
-  background: #fff;
-  padding: 40px;
-  z-index: 3;
-}
+  .gift-guide-text {
+    max-width: 600px;
+    background: #fff;
+    padding: 40px;
+    z-index: 3;
+  }
 
-.gift-guide-text h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+  .gift-guide-text h2 {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
 
-.gift-guide-text p {
-  font-size: 16px;
-  margin-bottom: 30px;
-}
+  .gift-guide-text p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
 
-.gift-guide-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-}
+  .gift-guide-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+  }
 
-.gift-guide-bottom{
+  .gift-guide-btn .btn-icon {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    margin-left: 29px;
+    width: 25px;
+  }
+
+  .gift-guide-bottom {
     display: flex;
     width: 100%;
     height: auto;
+  }
 
-}
-
-.gift-guide-bg {
+  .gift-guide-bg {
     position: relative;
     top: 0;
     right: 0;
@@ -96,36 +105,46 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-}
+  }
 
-.gift-guide-bg img {
+  .gift-guide-bg img {
     width: 100%;
     height: 100%;
     min-height: 402px;
-}
-.gift-guide-top-image {
+  }
+  .gift-guide-top-image {
     width: 100%;
-}
-.gift-guide-top-image img {
+  }
+  .gift-guide-top-image img {
     width: 100%;
     height: auto;
-}
+  }
 </style>
 
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
     if (typeof gsap !== 'undefined') {
-      gsap.from(".animate-fade-in", {
+      gsap.from('.animate-fade-in', {
         opacity: 0,
         y: 50,
         duration: 1,
-        ease: "power2.out"
+        ease: 'power2.out',
+      });
+      gsap.from('.animate-from-top', {
+        opacity: 0,
+        y: -50,
+        duration: 1,
+        ease: 'power2.out',
+      });
+      gsap.from('.animate-from-right', {
+        opacity: 0,
+        x: 50,
+        duration: 1,
+        ease: 'power2.out',
       });
     }
   });
 </script>
-
 
 {% schema %}
 {
