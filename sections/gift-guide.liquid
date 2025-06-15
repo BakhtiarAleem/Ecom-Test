@@ -16,7 +16,7 @@
       <div class="gift-guide-text animate-fade-in">
         <h2>{{ section.settings.heading }}</h2>
         <p>{{ section.settings.subheading }}</p>
-        <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn">
+        <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-shake">
           {{ section.settings.buttonLabel }}
           <div class="btn-icon">
             <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
@@ -127,21 +127,35 @@
       gsap.from('.animate-fade-in', {
         opacity: 0,
         y: 50,
-        duration: 1,
+        duration: 3,
         ease: 'power2.out',
       });
       gsap.from('.animate-from-top', {
         opacity: 0,
         y: -50,
-        duration: 1,
+        duration: 3,
         ease: 'power2.out',
       });
       gsap.from('.animate-from-right', {
         opacity: 0,
         x: 50,
-        duration: 1,
+        duration: 3,
         ease: 'power2.out',
       });
+
+      {% comment %} button shake {% endcomment %}
+        const btn = document.querySelector(".btn-shake");
+
+        const hoverTL = gsap.timeline({ paused: true, repeat: -1, yoyo: true })
+          .to(btn, { x: 5, duration: 0.1 })
+          .to(btn, { x: -5, duration: 0.1 });
+
+        btn.addEventListener("mouseenter", () => hoverTL.play());
+        btn.addEventListener("mouseleave", () => {
+          hoverTL.pause();
+          gsap.to(btn, { x: 0, duration: 0.2 }); // reset position
+        });
+
     }
   });
 </script>
