@@ -164,7 +164,7 @@
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
   class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
->
+> 
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -188,13 +188,8 @@
       endif
     -%}
 
-    {% comment %} calling Announcement Bar Data {% endcomment %}
-     {%- if section.settings.announcement_label != '' -%}
-      <div class="header-announcement">
-        {{ section.settings.announcement_label }}
-        </div>
-      {% endif %}
 
+<div class="header-menu-bar">
       
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
@@ -228,6 +223,14 @@
         </h1>
       {%- endif -%}
     {%- endif -%}
+
+
+    {% comment %} calling Announcement Bar Data {% endcomment %}
+     {%- if section.settings.announcement_label != '' -%}
+      <div class="header-announcement">
+        {{ section.settings.announcement_label }}
+        </div>
+      {% endif %}
 
     {%- liquid
       if section.settings.menu != blank
@@ -359,6 +362,7 @@
           </div>
         {%- endif -%}
       </a>
+    </div>
     </div>
   </header>
 </{{ header_tag }}>

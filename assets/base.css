@@ -99,12 +99,20 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   padding-left: 3rem;
   padding-right: 3rem;
 }
-
+/* custom css start */
 .header{
   width: 100%;
   background-color: #F5F5F5;
   max-width: none;
 }
+
+.header-menu-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* custom css end */
 
 @media screen and (min-width: 750px) {
   .page-width {
