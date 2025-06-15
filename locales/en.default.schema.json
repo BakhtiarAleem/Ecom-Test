@@ -703,7 +703,8 @@
       },
       "presets": {
         "name": "Gift Guide"
-      },
+      }
+    },
     "custom-grid-product": {
       "name": "Custom Grid Product",
       "settings": {
