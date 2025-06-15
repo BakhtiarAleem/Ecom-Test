@@ -265,7 +265,7 @@
     {%- endif -%}
 
     {% comment %} calling Announcement Bar Data {% endcomment %}
-    {% section 'announcement-bar' %}
+      {% render 'announcement-bar-snippet' %}
 
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
