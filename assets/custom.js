@@ -42,14 +42,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const color = btn.getAttribute("data-color") || "#FFF544";
 
             overlay.style.setProperty('--color', color);
-
-            if(color === '#FFF544'){
+            const colorSet = (color) => {
+                 if(color === '#FFF544'){
                 btn.style.color = '#fff';
             }
             else{
                 btn.style.color = '#000';
             }
+            }
 
+            const colorReset = () => {
+                btn.style.color = '';
+            }
             // Animate on hover
             btn.addEventListener("mouseenter", () => {
                 gsap.to(overlay, {
@@ -57,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     duration: 0.5,
                     ease: "power2.out"
                 });
+                colorSet(color);
             });
 
             btn.addEventListener("mouseleave", () => {
@@ -65,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     duration: 0.5,
                     ease: "power2.out"
                 });
+                colorReset();
             });
         });
     }
