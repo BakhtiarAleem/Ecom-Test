@@ -188,6 +188,14 @@
       endif
     -%}
 
+    {% comment %} calling Announcement Bar Data {% endcomment %}
+     {%- if section.settings.announcement_label != '' -%}
+      <div class="header-announcement">
+        {{ section.settings.announcement_label }}
+        </div>
+      {% endif %}
+
+      
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
@@ -264,10 +272,7 @@
       {%- endif -%}
     {%- endif -%}
 
-    {% comment %} calling Announcement Bar Data {% endcomment %}
-      <div class="header-announcement">
-        {{ section.settings.announcement_label }}
-        </div>
+
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -717,7 +722,7 @@
       "type": "text",
       "id": "announcement_label",
       "label": "Announcement Label",
-      "default": "/collections/gifts"
+      "default": "Find the ideal gift for your loved ones."
     }
   ],
   "blocks": [
