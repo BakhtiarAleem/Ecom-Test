@@ -39,11 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const overlay = btn.querySelector('.overlay');
 
             // Set color variables from data attributes
-            const color1 = btn.getAttribute("data-color1") || "#FFF544";
-            const color2 = btn.getAttribute("data-color2") || "#000";
+            const color = btn.getAttribute("data-color") || "#FFF544";
 
-            overlay.style.setProperty('--color1', color1);
-            overlay.style.setProperty('--color2', color2);
+            overlay.style.setProperty('--color', color);
 
             // Animate on hover
             btn.addEventListener("mouseenter", () => {
