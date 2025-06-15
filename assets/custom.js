@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             overlay.style.setProperty('--color', color);
             const colorSet = (color) => {
-                 if(color === '#FFF544'){
+            if(color === '#000'){
                 btn.style.color = '#fff';
             }
             else{
