@@ -123,29 +123,32 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .btn-color-fill {
   position: relative;
   overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: #000;
   color: #fff;
   padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  z-index: 1;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.btn-color-fill::before {
-  content: '';
+.btn-color-fill .btn-content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-color-fill .overlay {
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, var(--color1), var(--color2));
-  z-index: 0;
-  transition: none;
-}
-
-.btn-color-fill span {
-  position: relative;
   z-index: 1;
+  background: linear-gradient(to right, var(--color1), var(--color2));
 }
 /* custom css end */
 

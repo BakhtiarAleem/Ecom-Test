@@ -17,10 +17,13 @@
         <h2>{{ section.settings.heading }}</h2>
         <p>{{ section.settings.subheading }}</p>
         <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill"  data-color1="#000"  data-color2="#FFF544">
+          <span class="overlay"></span>
+          <span class="btn-content">
           {{ section.settings.buttonLabel }}
           <div class="btn-icon">
             <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
           </div>
+          </span>
         </a>
       </div>
       {% if section.settings.image_bottom != blank %}
