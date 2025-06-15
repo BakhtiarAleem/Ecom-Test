@@ -26,6 +26,7 @@
       "settings": {
         "collection": "all",
         "products_to_show": 8,
+        "custom_full_width": true,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
@@ -33,7 +34,7 @@
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": false,
-        "full_width": true,
+        "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
