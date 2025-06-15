@@ -20,16 +20,18 @@
       });
 
         //button shake
-        const btn = document.querySelector(".btn-shake");
+        const buttons = document.querySelectorAll(".btn-shake");
 
+        buttons.forEach((btn) => {
         const hoverTL = gsap.timeline({ paused: true, repeat: -1, yoyo: true })
-          .to(btn, { x: 5, duration: 0.1 })
-          .to(btn, { x: -5, duration: 0.1 });
+            .to(btn, { x: 5, duration: 0.1 })
+            .to(btn, { x: -5, duration: 0.1 });
 
         btn.addEventListener("mouseenter", () => hoverTL.play());
         btn.addEventListener("mouseleave", () => {
-          hoverTL.pause();
-          gsap.to(btn, { x: 0, duration: 0.2 }); // reset position
+            hoverTL.pause();
+            gsap.to(btn, { x: 0, duration: 0.2 }); // reset position
+        });
         });
 
     }
