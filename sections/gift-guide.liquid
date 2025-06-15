@@ -2,6 +2,16 @@
 
 <section class="gift-guide-section">
   <div class="gift-guide-wrapper">
+    {% if section.settings.image_top != blank %}
+    <div class="gift-guide-top-image">
+      <img 
+          src="{{ section.settings.image_top | image_url: width: 1600 }}" 
+          alt="Gift Guide Background"
+          width="{{ section.settings.image_top.width | default: 1600 }}"
+          height="{{ section.settings.image_top.height | default: 390 }}"
+        >
+    </div>
+    {% endif %}
     <div class="gift-guide-text">
       <h2>{{ section.settings.heading }}</h2>
       <p>{{ section.settings.subheading }}</p>
@@ -9,13 +19,13 @@
         {{ section.settings.buttonLabel }}
       </a>
     </div>
-    {% if section.settings.backgroundImage != blank %}
+    {% if section.settings.image_bottom != blank %}
       <div class="gift-guide-bg">
         <img 
-          src="{{ section.settings.background_image | image_url: width: 1600 }}" 
+          src="{{ section.settings.image_bottom | image_url: width: 890 }}" 
           alt="Gift Guide Background"
-          width="{{ section.settings.background_image.width | default: 1600 }}"
-          height="{{ section.settings.background_image.height | default: 900 }}"
+          width="{{ section.settings.image_bottom.width | default: 890 }}"
+          height="{{ section.settings.image_bottom.height | default: 420 }}"
         >
       </div>
     {% endif %}
@@ -117,8 +127,13 @@
     },
     {
       "type": "image_picker",
-      "id": "backgroundImage",
-      "label": "Background Image"
+      "id": "image_top",
+      "label": "Image Top"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_bottom",
+      "label": "Image Bottom"
     }
   ],
   "presets": [
