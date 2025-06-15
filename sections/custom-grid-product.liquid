@@ -197,9 +197,17 @@ margin-bottom: 0px;
     </div>
     </div>
     <div class="modal-bottom">
-        <a id="modal-add-cart" class="add-to-cart-modal" href="">
-          Add to Cart
+
+        <a href="" id="modal-add-cart" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
+          <span class="overlay"></span>
+          <span class="btn-content">
+            {{ section.settings.buttonLabel }}
+            <div class="btn-icon">
+              <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+            </div>
+          </span>
         </a>
+
     </div>
     <p></p>
   </div>
