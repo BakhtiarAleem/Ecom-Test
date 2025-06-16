@@ -202,6 +202,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const selectedSize = document.querySelector("select[name='size']")?.value;
       const selectedColor = document.querySelector("input[name='color']:checked")?.value;
+      console.log('selectedSize', selectedSize)
+      console.log('selectedColor', selectedColor)
 
       const matchedVariant = variantsData.find(v => {
         return (
