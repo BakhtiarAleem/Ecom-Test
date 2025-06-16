@@ -86,6 +86,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Custom Grid Modal Data
 
+
+    let variantsData = [];
+
     const modal = document.getElementById("product-modal");
     const closeBtn = modal.querySelector(".product-close");
     const titleEl = document.getElementById("modal-title");
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const description = button.dataset.description;
         const featured_media = button.dataset.image;
         const url = button.dataset.url;
-        const variantsData = JSON.parse(button.dataset.variants);
+        variantsData = JSON.parse(button.dataset.variants);
         variantsEl.innerHTML = '';
 
         titleEl.textContent = title;
