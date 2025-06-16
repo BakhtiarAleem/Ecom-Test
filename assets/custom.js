@@ -137,8 +137,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const label = document.createElement("label");
             label.htmlFor = id;
             label.className = "color-option";
+            label.setAttribute("data-color", value.toLowerCase());
             label.textContent = value;
 
+            const span = document.createElement("span");
+            span.className = "color-box";
+            span.style.backgroundColor = value.toLowerCase();
+            span.title = value;
+
+            label.appendChild(span);
             buttonGroup.appendChild(radio);
             buttonGroup.appendChild(label);
         });
