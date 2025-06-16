@@ -24,7 +24,8 @@
         <span class="btn-content">
           {{ section.settings.choose_gift_label }}
           <div class="btn-icon">
-            <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+            {% comment %} <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto"> {% endcomment %}
+             <span class="arrow-icon">{% render 'icon-arrow' %}</span>
           </div>
         </span>
       </a>
