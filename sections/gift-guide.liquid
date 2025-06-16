@@ -1,82 +1,158 @@
 <!-- sections/gift-guide.liquid -->
 
 <section class="gift-guide-section">
-  <div class="top-bar">
-    <div class="logo">
-      <img
-        src="{{ section.settings.logo | image_url: width: 890 }}"
-        alt="Gift Guide Background"
-        width="{{ section.settings.logo.width | default: 890 }}"
-        height="{{ section.settings.logo.height | default: 420 }}"
-      >
-    </div>
-
-    {% comment %} calling Announcement Bar Data {% endcomment %}
-    {%- if section.settings.announcement_label != '' -%}
-      <div class="header-announcement">
-        {{ section.settings.announcement_label }}
-      </div>
-    {% endif %}
-
-    <div class="choose-gift">
-      <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-color-fill" data-color="#000">
-        <span class="overlay"></span>
-        <span class="btn-content">
-          {{ section.settings.choose_gift_label }}
-          <div class="btn-icon">
-            {% comment %} <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto"> {% endcomment %}
-            {% render 'icon-arrow' %}
-          </div>
-        </span>
-      </a>
-    </div>
-  </div>
-
-  <div class="gift-guide-wrapper">
-    {% if section.settings.image_top != blank %}
-      <div class="gift-guide-top-image animate-from-top">
+  <div class="web-view">
+    <div class="top-bar">
+      <div class="logo">
         <img
-          src="{{ section.settings.image_top | image_url: width: 1600 }}"
+          src="{{ section.settings.logo | image_url: width: 890 }}"
           alt="Gift Guide Background"
-          width="{{ section.settings.image_top.width | default: 1600 }}"
-          height="{{ section.settings.image_top.height | default: 390 }}"
+          width="{{ section.settings.logo.width | default: 890 }}"
+          height="{{ section.settings.logo.height | default: 420 }}"
         >
       </div>
-    {% endif %}
-    <div class="gift-guide-bottom">
-      <div class="gift-guide-text animate-fade-in">
-        <h2>{{ section.settings.heading }}</h2>
-        <p>{{ section.settings.subheading }}</p>
-        <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
+
+      {% comment %} calling Announcement Bar Data {% endcomment %}
+      {%- if section.settings.announcement_label != '' -%}
+        <div class="header-announcement">
+          {{ section.settings.announcement_label }}
+        </div>
+      {% endif %}
+
+      <div class="choose-gift">
+        <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-color-fill" data-color="#000">
           <span class="overlay"></span>
           <span class="btn-content">
-            {{ section.settings.buttonLabel }}
+            {{ section.settings.choose_gift_label }}
             <div class="btn-icon">
+              {% comment %} <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto"> {% endcomment %}
               {% render 'icon-arrow' %}
             </div>
           </span>
         </a>
       </div>
-      {% if section.settings.image_bottom != blank %}
-        <div class="gift-guide-bg animate-from-right">
+    </div>
+    <div class="gift-guide-wrapper">
+      {% if section.settings.image_top != blank %}
+        <div class="gift-guide-top-image animate-from-top">
           <img
-            src="{{ section.settings.image_bottom | image_url: width: 890 }}"
+            src="{{ section.settings.image_top | image_url: width: 1600 }}"
             alt="Gift Guide Background"
-            width="{{ section.settings.image_bottom.width | default: 890 }}"
-            height="{{ section.settings.image_bottom.height | default: 420 }}"
+            width="{{ section.settings.image_top.width | default: 1600 }}"
+            height="{{ section.settings.image_top.height | default: 390 }}"
           >
         </div>
       {% endif %}
-    </div>
-    {% if section.settings.bottom_text != ''%}
-      <div class="gift-guide-bottom-announcement">
-        <h4>{{ section.settings.bottom_text }}</h4>
+      <div class="gift-guide-bottom">
+        <div class="gift-guide-text animate-fade-in">
+          <h2>{{ section.settings.heading }}</h2>
+          <p>{{ section.settings.subheading }}</p>
+          <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
+            <span class="overlay"></span>
+            <span class="btn-content">
+              {{ section.settings.buttonLabel }}
+              <div class="btn-icon">
+                {% render 'icon-arrow' %}
+              </div>
+            </span>
+          </a>
+        </div>
+        {% if section.settings.image_bottom != blank %}
+          <div class="gift-guide-bg animate-from-right">
+            <img
+              src="{{ section.settings.image_bottom | image_url: width: 890 }}"
+              alt="Gift Guide Background"
+              width="{{ section.settings.image_bottom.width | default: 890 }}"
+              height="{{ section.settings.image_bottom.height | default: 420 }}"
+            >
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
+      {% if section.settings.bottom_text != ''%}
+        <div class="gift-guide-bottom-announcement">
+          <h4>{{ section.settings.bottom_text }}</h4>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="mobile-view">
+    <div class="top-bar">
+      <div class="logo">
+        <img
+          src="{{ section.settings.logo | image_url: width: 890 }}"
+          alt="Gift Guide Background"
+          width="{{ section.settings.logo.width | default: 890 }}"
+          height="{{ section.settings.logo.height | default: 420 }}"
+        >
+      </div>
+
+      {% comment %} calling Announcement Bar Data {% endcomment %}
+      {%- if section.settings.announcement_label != '' -%}
+        <div class="header-announcement">
+          {{ section.settings.announcement_label }}
+        </div>
+      {% endif %}
+
+      <div class="choose-gift">
+        <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-color-fill" data-color="#000">
+          <span class="overlay"></span>
+          <span class="btn-content">
+            {{ section.settings.choose_gift_label }}
+            <div class="btn-icon">
+              {% comment %} <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto"> {% endcomment %}
+              {% render 'icon-arrow' %}
+            </div>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="gift-guide-wrapper">
+      {% if section.settings.image_top != blank %}
+        <div class="gift-guide-top-image animate-from-top">
+          <img
+            src="{{ section.settings.image_top | image_url: width: 1600 }}"
+            alt="Gift Guide Background"
+            width="{{ section.settings.image_top.width | default: 1600 }}"
+            height="{{ section.settings.image_top.height | default: 390 }}"
+          >
+        </div>
+      {% endif %}
+      <div class="gift-guide-bottom">
+        <div class="gift-guide-text animate-fade-in">
+          <h2>{{ section.settings.heading }}</h2>
+          <p>{{ section.settings.subheading }}</p>
+          <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
+            <span class="overlay"></span>
+            <span class="btn-content">
+              {{ section.settings.buttonLabel }}
+              <div class="btn-icon">
+                {% render 'icon-arrow' %}
+              </div>
+            </span>
+          </a>
+        </div>
+        {% if section.settings.image_bottom != blank %}
+          <div class="gift-guide-bg animate-from-right">
+            <img
+              src="{{ section.settings.image_bottom | image_url: width: 890 }}"
+              alt="Gift Guide Background"
+              width="{{ section.settings.image_bottom.width | default: 890 }}"
+              height="{{ section.settings.image_bottom.height | default: 420 }}"
+            >
+          </div>
+        {% endif %}
+      </div>
+      {% if section.settings.bottom_text != ''%}
+        <div class="gift-guide-bottom-announcement">
+          <h4>{{ section.settings.bottom_text }}</h4>
+        </div>
+      {% endif %}
+    </div>
   </div>
 </section>
 
 <style>
+
   .gift-guide-section {
     position: relative;
     padding: 0px;
@@ -238,6 +314,8 @@
 .gift-guide-bottom-announcement{
     width: 100%;
     background-color: #F5F5F5;
+    margin-top: -8px;
+    z-index: 11;
 }
 .gift-guide-bottom-announcement h4{
     color: #000000;
@@ -246,6 +324,20 @@
     padding: 10px 0px;
     font-size: 16px;
 }
+.gift-guide-section .web-view{
+  display: block;
+}
+.gift-guide-section .mobile-view{
+  display: none;
+}
+@media screen and (max-width: 767px) {
+    .gift-guide-section .web-view{
+  display: none;
+}
+.gift-guide-section .mobile-view{
+  display: block;
+}
+  }
 </style>
 
 {% schema %}
@@ -263,7 +355,7 @@
       "type": "text",
       "id": "choose_gift_link",
       "label": "Choose gift Link",
-      "default": "/collections/gifts"
+      "default": "/collections/all"
     },
     {
       "type": "text",
@@ -293,7 +385,7 @@
       "type": "text",
       "id": "buttonLink",
       "label": "Button Link",
-      "default": "/collections/gifts"
+      "default": "/collections/all"
     },
     {
       "type": "text",
