@@ -67,13 +67,12 @@
           >
         </div>
       {% endif %}
-      {% if section.settings.bottom_text != ''%}
-        <div class="gift-guide-bottom">
-          <h4>{{ section.settings.bottom_text }}</h4>
-        </div>
-      {% endif %}
-      
     </div>
+    {% if section.settings.bottom_text != ''%}
+      <div class="gift-guide-bottom-announcement">
+        <h4>{{ section.settings.bottom_text }}</h4>
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -236,11 +235,11 @@
 .full-width-feature-section .title {
     font-size: 32px;
 }
-.gift-guide-bottom{
+.gift-guide-bottom-announcement{
   width: 100%;
   background-color: '#F5F5F5',
 }
-.gift-guide-bottom h4{
+.gift-guide-bottom-announcement h4{
   color: #000000;
 }
 </style>
