@@ -3,202 +3,226 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-        .section-{{ section.id }}-padding {
-          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+            .section-{{ section.id }}-padding {
+              padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+              padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+            }
+            .custom-grid-section{
+              position: relative;
+            z-index: 9;
+            }
+        .full-width-feature-section .page-width
+         {
+            width: 100%;
+            max-width: none;
         }
-        .custom-grid-section{
-          position: relative;
-        z-index: 9;
-        }
-    .full-width-feature-section .page-width
-     {
-        width: 100%;
-        max-width: none;
-    }
-    .custom-grid-section .grid__item .custom_card
-   {
+        .custom-grid-section .grid__item .custom_card
+       {
+          width: 100%;
+      }
+      .custom-grid-section .grid__item .custom_card .custom_card_media{
+            width: 100%;
+            cursor: pointer;
+            overflow: hidden;
+        height: 97%;
+      }
+
+      .custom-grid-section .grid__item .custom_card .custom_card_media img{
+                height: auto;
+                    transition: 0.3s ease-in-out;
+          width: 100%;
+
+            transform: scale(1);
+      }
+
+      .custom-grid-section .grid__item:hover .custom_card .custom_card_media img {
+          transition: 0.3s ease-in-out;
+        transform: scale(1.1);
+      }
+
+    .product-modal {
+      display: flex;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
       width: 100%;
-  }
-  .custom-grid-section .grid__item .custom_card .custom_card_media{
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-modal.hidden {
+      display: none;
+    }
+
+    .product-modal-content {
+      background: white;
+      padding: 2rem;
+      max-width: 311px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+    }
+
+    .product-close {
+      position: absolute;
+      top: 0px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .product-modal-content .modal-content {
+        display: flex;
+        margin-top: 18px;
+    }
+
+    .product-modal-content .modal-content .modal-left {
+        width: auto;
+        height: 90px;
+    }
+
+    .product-modal-content .modal-content .modal-left img {
+        width: auto;
+        height: 100%;
+    }
+    .product-modal-content .modal-content .modal-right .modal-title{
+          margin: auto;
+        font-size: 16px;
+    }
+
+    .product-modal-content .modal-content .modal-right .modal-price{
+        margin-top: 22px;
+        margin-bottom: 0px;
+        font-size: 16px;
+    }
+    .product-modal-content .modal-content .modal-right .modal-description{
+    font-size: 12px;
+    margin-top: 13px;
+    margin-bottom: 0px;
+    }
+
+    .product-modal-content .modal-bottom{
+      width: 100%;
+    }
+    .product-modal-content .modal-bottom .add-to-cart-modal{
+        padding: 12px 0px;
         width: 100%;
         cursor: pointer;
-        overflow: hidden;
-    height: 97%;
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        display: block;
+    }
+    .product-modal-content .modal-bottom .add-to-cart-modal.gift-guide-btn .btn-icon{
+        position: absolute;
+        right: -50px;
+    }
+    .custom-grid-section .grid__item
+     {
+        position: relative;
+    }
+    .custom-grid-section .grid__item .open-modal-btn {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        bottom: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .custom-grid-section .product-modal-content .modal-variants label{
+        width: 100%;
+        display: block;
+        text-align: left;
+        color: #333;
+    }
+
+    .custom-grid-section .product-modal-content .modal-variants select.variant-select {
+        width: 100%;
+        padding: 10px 40px 10px 10px;
+        -webkit-appearance: none;
+        margin-top: 6px;
+    }
+
+
+    .custom-grid-section .product-modal-content .modal-variants .variant-color-wrapper {
+        margin-top: 10px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .custom-grid-section .product-modal-content .modal-variants .variant-color-wrapper p {
+        margin: 0;
+        margin-bottom: 6px;
+    }
+    .custom-grid-section .product-modal-content .modal-variants .color-button-group {
+      display: flex;
+      border: 1px solid #000;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .custom-grid-section .product-modal-content .modal-variants .color-button-group input[type="radio"] {
+      display: none;
+    }
+
+    .custom-grid-section .product-modal-content .modal-variants .color-option {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      border-left: 1px solid #000;
+      position: relative;
+    }
+    .custom-grid-section .product-modal-content .modal-variants label span.color-box
+     {
+        position: absolute;
+        width: 10px;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .custom-grid-section .product-modal-content .modal-variants .color-option:first-of-type {
+      border-left: none;
+    }
+
+    .custom-grid-section .product-modal-content .modal-variants .color-button-group input[type="radio"]:checked + .color-option {
+      background-color: #000;
+      color: #fff;
+    }
+
+    #toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
   }
 
-  .custom-grid-section .grid__item .custom_card .custom_card_media img{
-            height: auto;
-                transition: 0.3s ease-in-out;
-      width: 100%;
-
-        transform: scale(1);
-  }
-
-  .custom-grid-section .grid__item:hover .custom_card .custom_card_media img {
-      transition: 0.3s ease-in-out;
-    transform: scale(1.1);
-  }
-
-.product-modal {
-  display: flex;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-}
-
-.product-modal.hidden {
-  display: none;
-}
-
-.product-modal-content {
-  background: white;
-  padding: 2rem;
-  max-width: 311px;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-}
-
-.product-close {
-  position: absolute;
-  top: 0px;
-  right: 15px;
-  cursor: pointer;
-  font-size: 24px;
-}
-.product-modal-content .modal-content {
-    display: flex;
-    margin-top: 18px;
-}
-
-.product-modal-content .modal-content .modal-left {
-    width: auto;
-    height: 90px;
-}
-
-.product-modal-content .modal-content .modal-left img {
-    width: auto;
-    height: 100%;
-}
-.product-modal-content .modal-content .modal-right .modal-title{
-      margin: auto;
-    font-size: 16px;
-}
-
-.product-modal-content .modal-content .modal-right .modal-price{
-    margin-top: 22px;
-    margin-bottom: 0px;
-    font-size: 16px;
-}
-.product-modal-content .modal-content .modal-right .modal-description{
-font-size: 12px;
-margin-top: 13px;
-margin-bottom: 0px;
-}
-
-.product-modal-content .modal-bottom{
-  width: 100%;
-}
-.product-modal-content .modal-bottom .add-to-cart-modal{
-    padding: 12px 0px;
-    width: 100%;
-    cursor: pointer;
-    background-color: #000;
+  .toast {
+    background-color: #333;
     color: #fff;
-    text-decoration: none;
-    display: block;
-}
-.product-modal-content .modal-bottom .add-to-cart-modal.gift-guide-btn .btn-icon{
-    position: absolute;
-    right: -50px;
-}
-.custom-grid-section .grid__item
- {
-    position: relative;
-}
-.custom-grid-section .grid__item .open-modal-btn {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    bottom: 0;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     opacity: 0;
-    cursor: pointer;
-}
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+  }
 
-.custom-grid-section .product-modal-content .modal-variants label{
-    width: 100%;
-    display: block;
-    text-align: left;
-    color: #333;
-}
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.custom-grid-section .product-modal-content .modal-variants select.variant-select {
-    width: 100%;
-    padding: 10px 40px 10px 10px;
-    -webkit-appearance: none;
-    margin-top: 6px;
-}
-
-
-.custom-grid-section .product-modal-content .modal-variants .variant-color-wrapper {
-    margin-top: 10px;
-    text-align: left;
-    margin-bottom: 10px;
-}
-.custom-grid-section .product-modal-content .modal-variants .variant-color-wrapper p {
-    margin: 0;
-    margin-bottom: 6px;
-}
-.custom-grid-section .product-modal-content .modal-variants .color-button-group {
-  display: flex;
-  border: 1px solid #000;
-  overflow: hidden;
-  border-radius: 4px;
-}
-
-.custom-grid-section .product-modal-content .modal-variants .color-button-group input[type="radio"] {
-  display: none;
-}
-
-.custom-grid-section .product-modal-content .modal-variants .color-option {
-  flex: 1;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-  border-left: 1px solid #000;
-  position: relative;
-}
-.custom-grid-section .product-modal-content .modal-variants label span.color-box
- {
-    position: absolute;
-    width: 10px;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-.custom-grid-section .product-modal-content .modal-variants .color-option:first-of-type {
-  border-left: none;
-}
-
-.custom-grid-section .product-modal-content .modal-variants .color-button-group input[type="radio"]:checked + .color-option {
-  background-color: #000;
-  color: #fff;
-}
-
-        @media screen and (min-width: 750px) {
-          .section-{{ section.id }}-padding {
-            padding-top: {{ section.settings.padding_top }}px;
-            padding-bottom: {{ section.settings.padding_bottom }}px;
-          }
-        }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
 {%- endstyle -%}
 
 <div class="custom-grid-section color-{{ section.settings.color_scheme }} isolate gradient section-{{ section.id }}-padding {% if section.settings.custom_full_width %}full-width-feature-section{% endif %}">
@@ -230,65 +254,61 @@ margin-bottom: 0px;
             </div>
           </div>
 
-
-
-
-
           {% comment %} modal box start {% endcomment %}
 
-<button class="open-modal-btn"
-  data-title="{{ product.title }}"
-  data-price="{{ product.price | money }}"
-  data-description="{{ product.description }}"
-  data-image="{{ product.featured_media | image_url: width: 533 }}"
-  data-url="{{ product.url }}"
-  data-options="{{ product.options_with_values | json | escape }}"
-  data-variants="{{ product.variants | json | escape }}"
->
-  View More
-</button>
-{% comment %} modal box end {% endcomment %}
-
+          <button
+            class="open-modal-btn"
+            data-title="{{ product.title }}"
+            data-price="{{ product.price | money }}"
+            data-description="{{ product.description }}"
+            data-image="{{ product.featured_media | image_url: width: 533 }}"
+            data-url="{{ product.url }}"
+            data-options="{{ product.options_with_values | json | escape }}"
+            data-variants="{{ product.variants | json | escape }}"
+          >
+            View More
+          </button>
+          {% comment %} modal box end {% endcomment %}
         </div>
       {%- endfor -%}
       <div id="product-modal" class="product-modal hidden">
-  <div class="product-modal-content">
-    <span class="product-close">&times;</span>
-    <div class="modal-content">
-    <div class="modal-left">
-      <img id="modal-image" src="{{ 'placeholder.png' | asset_url }}" width="400" height="400" alt="Product image"/>
-    </div>
-    <div class="modal-right">
-      <h2 id="modal-title" class="modal-title"></h2>
-    <p id="modal-price"  class="modal-price"></p>
-    <p id="modal-description"  class="modal-description"></p>
-    </div>
-    </div>
-    <div class="modal-bottom">
-
-      <div id="modal-variants" class="modal-variants">
-
-      </div>
-      
-        <a href="" id="modal-add-cart" class="add-to-cart-modal gift-guide-btn btn-color-fill" data-color="#FFF544">
-          <span class="overlay"></span>
-          <span class="btn-content">
-            Add to Cart
-            <div class="btn-icon">
-              <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+        <div class="product-modal-content">
+          <span class="product-close">&times;</span>
+          <div class="modal-content">
+            <div class="modal-left">
+              <img
+                id="modal-image"
+                src="{{ 'placeholder.png' | asset_url }}"
+                width="400"
+                height="400"
+                alt="Product image"
+              >
             </div>
-          </span>
-        </a>
+            <div class="modal-right">
+              <h2 id="modal-title" class="modal-title"></h2>
+              <p id="modal-price" class="modal-price"></p>
+              <p id="modal-description" class="modal-description"></p>
+            </div>
+          </div>
+          <div class="modal-bottom">
+            <div id="modal-variants" class="modal-variants"></div>
 
-
-
-
+            <a href="" id="modal-add-cart" class="add-to-cart-modal gift-guide-btn btn-color-fill" data-color="#FFF544">
+              <span class="overlay"></span>
+              <span class="btn-content">
+                Add to Cart
+                <div class="btn-icon">
+                  <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+                </div>
+              </span>
+            </a>
+          </div>
+          <p></p>
+        </div>
+      </div>
     </div>
-    <p></p>
   </div>
-</div>
-    </div>
-  </div>
+  <div id="toast-container"></div>
 </div>
 
 {% schema %}

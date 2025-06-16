@@ -195,6 +195,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+        // Toast Message
+    const showToast = (message, duration = 3000) => {
+        const container = document.getElementById("toast-container");
+
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = message;
+
+        container.appendChild(toast);
+
+        setTimeout(() => toast.classList.add("show"), 10);
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
+    }
+
 
     // Add to Cart Ajax
     const addToCartBtn = document.getElementById("modal-add-cart");
@@ -232,14 +250,15 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(res => res.json())
       .then(data => {
-        console.log('Added to cart:', data);
-        alert('Product added to cart!');
+        showToast(`${data?.product_title} added to cart!`);
       })
       .catch(err => {
-        console.error('Add to cart error:', err);
-        alert('Error adding product to cart.');
+        showToast(`${err}`);
       });
     };
+
+
+
 
 
 
