@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    // Animation on Gift Guide
+
     if (typeof gsap !== 'undefined') {
         gsap.from('.animate-fade-in', {
             opacity: 0,
@@ -20,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         //button shake
+
         const buttons = document.querySelectorAll(".btn-shake");
 
         buttons.forEach((btn) => {
@@ -34,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
+
+
+        // Button Color on Hover
 
         document.querySelectorAll('.btn-color-fill').forEach((btn) => {
             const overlay = btn.querySelector('.overlay');
@@ -75,6 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
+
+    // Custom Grid Modal Data
+
     const modal = document.getElementById("product-modal");
     const closeBtn = modal.querySelector(".product-close");
     const titleEl = document.getElementById("modal-title");
@@ -82,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const descriptionEl = document.getElementById("modal-description");
     const imageEl = document.getElementById("modal-image");
     const urlEl = document.getElementById("modal-add-cart");
-     const variantsEl = document.getElementById("variants");
+     const variantsEl = document.getElementById("modal-variants");
 
     document.querySelectorAll(".open-modal-btn").forEach(button => {
       button.addEventListener("click", () => {
@@ -92,18 +103,57 @@ document.addEventListener('DOMContentLoaded', function () {
         const featured_media = button.dataset.image;
         const url = button.dataset.url;
         const variantsData = JSON.parse(button.dataset.variants);
-        console.log("Variant all:", variantsData);
-//         variantsData.forEach(variant => {
-//   console.log("Variant title:", variant.title);
-//   console.log("Variant ID:", variant.id);
-//     console.log("Variant all:", variant);
-// });
+        variantsEl.innerHTML = '';
 
         titleEl.textContent = title;
         priceEl.textContent = price;
         descriptionEl.innerHTML = description;
         imageEl.src = featured_media
         urlEl.href = url
+
+ variantsData.forEach(variant => {
+      if (variant.name === "Size") {
+        const select = document.createElement("select");
+        select.name = "size";
+        select.classList.add("variant-select");
+
+        variant.values.forEach(value => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = value;
+          select.appendChild(option);
+        });
+
+        const label = document.createElement("label");
+        label.textContent = "Size:";
+        label.appendChild(select);
+        variantsEl.appendChild(label);
+      }
+
+      if (variant.name === "Color") {
+        const colorWrapper = document.createElement("div");
+        colorWrapper.classList.add("variant-color-wrapper");
+
+        const label = document.createElement("p");
+        label.textContent = "Color:";
+        colorWrapper.appendChild(label);
+
+        variant.values.forEach(value => {
+          const radioLabel = document.createElement("label");
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = "color";
+          radio.value = value;
+
+          radioLabel.appendChild(radio);
+          radioLabel.append(" " + value);
+          colorWrapper.appendChild(radioLabel);
+        });
+
+        variantsEl.appendChild(colorWrapper);
+      }
+    });
+
 
         modal.classList.remove("hidden");
       });
