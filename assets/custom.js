@@ -112,7 +112,43 @@ document.addEventListener('DOMContentLoaded', function () {
         urlEl.href = url
 
  variantsData.forEach(variant => {
-      if (variant.name === "Size") {
+
+      if (variant.name.toLowerCase() === "color") {
+        const colorWrapper = document.createElement("div");
+        colorWrapper.classList.add("variant-color-wrapper");
+
+        const label = document.createElement("p");
+        label.textContent = "Color:";
+        colorWrapper.appendChild(label);
+
+        const buttonGroup = document.createElement("div");
+        buttonGroup.classList.add("color-button-group");
+
+        variant.values.forEach((value, index) => {
+            const id = `color-${value}-${index}`;
+
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = "color";
+            radio.value = value;
+            radio.id = id;
+            if (index === 0) radio.checked = true; // Optional: preselect first
+
+            const label = document.createElement("label");
+            label.htmlFor = id;
+            label.className = "color-option";
+            label.textContent = value;
+
+            buttonGroup.appendChild(radio);
+            buttonGroup.appendChild(label);
+        });
+
+        colorWrapper.appendChild(buttonGroup);
+        variantsEl.appendChild(colorWrapper);
+      }
+
+
+      if (variant.name.toLowerCase() === "size") {
         const select = document.createElement("select");
         select.name = "size";
         select.classList.add("variant-select");
@@ -128,29 +164,6 @@ document.addEventListener('DOMContentLoaded', function () {
         label.textContent = "Size:";
         label.appendChild(select);
         variantsEl.appendChild(label);
-      }
-
-      if (variant.name === "Color") {
-        const colorWrapper = document.createElement("div");
-        colorWrapper.classList.add("variant-color-wrapper");
-
-        const label = document.createElement("p");
-        label.textContent = "Color:";
-        colorWrapper.appendChild(label);
-
-        variant.values.forEach(value => {
-          const radioLabel = document.createElement("label");
-          const radio = document.createElement("input");
-          radio.type = "radio";
-          radio.name = "color";
-          radio.value = value;
-
-          radioLabel.appendChild(radio);
-          radioLabel.append(" " + value);
-          colorWrapper.appendChild(radioLabel);
-        });
-
-        variantsEl.appendChild(colorWrapper);
       }
     });
 
