@@ -44,11 +44,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.querySelectorAll('.btn-color-fill').forEach((btn) => {
             const overlay = btn.querySelector('.overlay');
+            const svg = btn.querySelector('.arrow-icon svg');
 
             // Set color variables from data attributes
             const color = btn.getAttribute("data-color") || "#FFF544";
 
             overlay.style.setProperty('--color', color);
+            svg.style.setProperty('--color', color);
             const colorSet = (color) => {
             if(color === '#000'){
                 btn.style.color = '#fff';

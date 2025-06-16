@@ -25,7 +25,7 @@
           {{ section.settings.choose_gift_label }}
           <div class="btn-icon">
             {% comment %} <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto"> {% endcomment %}
-             <span class="arrow-icon">{% render 'icon-arrow' %}</span>
+            {% render 'icon-arrow' %}
           </div>
         </span>
       </a>
@@ -52,7 +52,7 @@
           <span class="btn-content">
             {{ section.settings.buttonLabel }}
             <div class="btn-icon">
-              <img src="{{ 'arrow-white.png' | asset_url }}" alt="arrow-white" width="100%" height="auto">
+              {% render 'icon-arrow' %}
             </div>
           </span>
         </a>
@@ -104,6 +104,9 @@
     vertical-align: top;
     margin-left: 29px;
     width: 25px;
+  }
+  .top-bar .choose-gift-btn .btn-icon .arrow-icon svg{
+    fill: #000000;
   }
   .top-bar .header-announcement {
     font-size: 16px;
@@ -213,6 +216,9 @@
     height: 100%;
     z-index: 1;
     background: var(--color);
+}
+.btn-color-fill:hover .arrow-icon svg{
+  fill: var(--color);
 }
 .full-width-feature-section .title {
     font-size: 32px;
