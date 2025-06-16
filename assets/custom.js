@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const featured_media = button.dataset.image;
         const url = button.dataset.url;
         const variantsData = JSON.parse(button.dataset.variants);
-
-        variantsData.forEach(variant => {
-  console.log("Variant title:", variant.title);
-  console.log("Variant ID:", variant.id);
-    console.log("Variant all:", variant);
+        console.log('variantsData', variantsData)
+//         variantsData.forEach(variant => {
+//   console.log("Variant title:", variant.title);
+//   console.log("Variant ID:", variant.id);
+//     console.log("Variant all:", variant);
 });
 
         titleEl.textContent = title;
