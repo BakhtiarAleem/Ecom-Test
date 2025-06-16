@@ -68,7 +68,7 @@
           </div>
         {% endif %}
       </div>
-      {% if section.settings.bottom_text != ''%}
+      {% if section.settings.bottom_text != '' %}
         <div class="gift-guide-bottom-announcement">
           <h4>{{ section.settings.bottom_text }}</h4>
         </div>
@@ -86,50 +86,33 @@
         >
       </div>
 
-      {% comment %} calling Announcement Bar Data {% endcomment %}
-      {%- if section.settings.announcement_label != '' -%}
-        <div class="header-announcement">
-          {{ section.settings.announcement_label }}
-        </div>
-      {% endif %}
+      <div class="menu-container">
+        {% comment %} calling Announcement Bar Data {% endcomment %}
+        {%- if section.settings.announcement_label != '' -%}
+          <div class="header-announcement">
+            {{ section.settings.announcement_label }}
+          </div>
+        {% endif %}
 
-      <div class="choose-gift">
-        <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-color-fill" data-color="#000">
-          <span class="overlay"></span>
-          <span class="btn-content">
-            {{ section.settings.choose_gift_label }}
-            <div class="btn-icon">
-              {% comment %} <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto"> {% endcomment %}
-              {% render 'icon-arrow' %}
-            </div>
-          </span>
-        </a>
-      </div>
-    </div>
-    <div class="gift-guide-wrapper">
-      {% if section.settings.image_top != blank %}
-        <div class="gift-guide-top-image animate-from-top">
-          <img
-            src="{{ section.settings.image_top | image_url: width: 1600 }}"
-            alt="Gift Guide Background"
-            width="{{ section.settings.image_top.width | default: 1600 }}"
-            height="{{ section.settings.image_top.height | default: 390 }}"
-          >
-        </div>
-      {% endif %}
-      <div class="gift-guide-bottom">
-        <div class="gift-guide-text animate-fade-in">
-          <h2>{{ section.settings.heading }}</h2>
-          <p>{{ section.settings.subheading }}</p>
-          <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
+        <div class="choose-gift">
+          <a href="{{ section.settings.choose_gift_link }}" class="choose-gift-btn btn-color-fill" data-color="#000">
             <span class="overlay"></span>
             <span class="btn-content">
-              {{ section.settings.buttonLabel }}
+              {{ section.settings.choose_gift_label }}
               <div class="btn-icon">
+                {% comment %} <img src="{{ 'arrow-black.png' | asset_url }}" alt="arrow-white" width="100%" height="auto"> {% endcomment %}
                 {% render 'icon-arrow' %}
               </div>
             </span>
           </a>
+        </div>
+      </div>
+    </div>
+    <div class="gift-guide-wrapper">
+      <div class="gift-guide-bottom">
+        <div class="gift-guide-text animate-fade-in">
+          <h2>{{ section.settings.heading }}</h2>
+          <p>{{ section.settings.sub_heading_mobile }}</p>
         </div>
         {% if section.settings.image_bottom != blank %}
           <div class="gift-guide-bg animate-from-right">
@@ -139,12 +122,21 @@
               width="{{ section.settings.image_bottom.width | default: 890 }}"
               height="{{ section.settings.image_bottom.height | default: 420 }}"
             >
+            <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
+              <span class="overlay"></span>
+              <span class="btn-content">
+                {{ section.settings.buttonLabel }}
+                <div class="btn-icon">
+                  {% render 'icon-arrow' %}
+                </div>
+              </span>
+            </a>
           </div>
         {% endif %}
       </div>
-      {% if section.settings.bottom_text != ''%}
+      {% if section.settings.bottom_text_mobile != '' %}
         <div class="gift-guide-bottom-announcement">
-          <h4>{{ section.settings.bottom_text }}</h4>
+          <h4>{{ section.settings.bottom_text_mobile }}</h4>
         </div>
       {% endif %}
     </div>
@@ -152,7 +144,6 @@
 </section>
 
 <style>
-
   .gift-guide-section {
     position: relative;
     padding: 0px;
@@ -161,17 +152,17 @@
   }
   .top-bar {
     display: flex;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     width: 100%;
     align-content: center;
     justify-content: space-between;
     padding: 12px 50px;
     align-items: center;
-}
-    .top-bar .choose-gift-btn {
+  }
+  .top-bar .choose-gift-btn {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #FFF544;
+    background-color: #fff544;
     color: #000000;
     font-size: 16px;
     text-decoration: none;
@@ -186,7 +177,7 @@
     margin-left: 29px;
     width: 25px;
   }
-  .top-bar .choose-gift-btn .btn-icon .arrow-icon svg{
+  .top-bar .choose-gift-btn .btn-icon .arrow-icon svg {
     fill: #000000;
   }
   .top-bar .header-announcement {
@@ -269,27 +260,27 @@
     height: auto;
   }
   .btn-color-fill {
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  color: #fff;
-  padding: 12px 24px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
 
-.btn-color-fill .btn-content {
-  position: relative;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
+  .btn-color-fill .btn-content {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-.btn-color-fill .overlay {
+  .btn-color-fill .overlay {
     position: absolute;
     top: 0;
     left: -103%;
@@ -297,46 +288,73 @@
     height: 100%;
     z-index: 1;
     background: var(--color);
-}
+  }
 
-.top-bar .choose-gift-btn:hover .btn-icon .arrow-icon svg{
-  fill: #fff;
-}
-.btn-color-fill .btn-icon .arrow-icon svg{
-  fill: #fff;
-}
-.btn-color-fill:hover .btn-icon .arrow-icon svg{
+  .top-bar .choose-gift-btn:hover .btn-icon .arrow-icon svg {
+    fill: #fff;
+  }
+  .btn-color-fill .btn-icon .arrow-icon svg {
+    fill: #fff;
+  }
+  .btn-color-fill:hover .btn-icon .arrow-icon svg {
     fill: #000;
-}
-.full-width-feature-section .title {
+  }
+  .full-width-feature-section .title {
     font-size: 32px;
-}
-.gift-guide-bottom-announcement{
+  }
+  .gift-guide-bottom-announcement {
     width: 100%;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     margin-top: -8px;
     z-index: 11;
-}
-.gift-guide-bottom-announcement h4{
+  }
+  .gift-guide-bottom-announcement h4 {
     color: #000000;
     margin: 0;
     text-align: center;
     padding: 10px 0px;
     font-size: 16px;
-}
-.gift-guide-section .web-view{
-  display: block;
-}
-.gift-guide-section .mobile-view{
-  display: none;
-}
-@media screen and (max-width: 767px) {
-    .gift-guide-section .web-view{
-  display: none;
-}
-.gift-guide-section .mobile-view{
-  display: block;
-}
+  }
+  .gift-guide-section .web-view {
+    display: block;
+  }
+  .gift-guide-section .mobile-view {
+    display: none;
+  }
+  @media screen and (max-width: 767px) {
+    .gift-guide-section .web-view {
+      display: none;
+    }
+    .gift-guide-section .mobile-view {
+      display: block;
+    }
+    .mobile-view .gift-guide-bottom {
+      flex-direction: column;
+    }
+    .mobile-view .gift-guide-text h2 {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .mobile-view .gift-guide-text p {
+      font-size: 16px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .mobile-view .gift-guide-bg {
+      position: relative;
+    }
+    .mobile-view .gift-guide-bg img {
+      width: 100%;
+      height: 100%;
+      min-height: 264px;
+      object-fit: cover;
+    }
+    .mobile-view .gift-guide-btn {
+      position: absolute;
+      bottom: 20px;
+    }
   }
 </style>
 
@@ -408,6 +426,18 @@
       "id": "bottom_text",
       "label": "Bottom Text",
       "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_heading_mobile",
+      "label": "Subheading",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination."
+    },
+    {
+      "type": "text",
+      "id": "bottom_text_mobile",
+      "label": "Bottom Text Mobile",
+      "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
     }
   ],
   "presets": [
