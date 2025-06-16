@@ -67,6 +67,12 @@
           >
         </div>
       {% endif %}
+      {% if section.settings.bottom_text != ''%}
+        <div class="gift-guide-bottom">
+          <h4>{{ section.settings.bottom_text }}</h4>
+        </div>
+      {% endif %}
+      
     </div>
   </div>
 </section>
@@ -230,6 +236,13 @@
 .full-width-feature-section .title {
     font-size: 32px;
 }
+.gift-guide-bottom{
+  width: 100%;
+  background-color: '#F5F5F5',
+}
+.gift-guide-bottom h4{
+  color: #000000;
+}
 </style>
 
 {% schema %}
@@ -294,6 +307,12 @@
       "type": "image_picker",
       "id": "image_bottom",
       "label": "Image Bottom"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
     }
   ],
   "presets": [
