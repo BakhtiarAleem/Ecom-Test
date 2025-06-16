@@ -229,15 +229,15 @@
   }
 {%- endstyle -%}
 
-<div class="custom-grid-section animate-from-top color-{{ section.settings.color_scheme }} isolate gradient section-{{ section.id }}-padding {% if section.settings.custom_full_width %}full-width-feature-section{% endif %}">
+<div class="custom-grid-section color-{{ section.settings.color_scheme }} isolate gradient section-{{ section.id }}-padding {% if section.settings.custom_full_width %}full-width-feature-section{% endif %}">
   <div class="page-width">
     {%- if section.settings.title != blank -%}
-      <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+      <h2 class="title animate-from-top inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.title }}
       </h2>
     {%- endif -%}
 
-    <div class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+    <div class="grid product-grid animate-from-top grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
       {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
         <div class="grid__item">
           <div class="card-wrapper product-card-wrapper underline-links-hover">
@@ -275,40 +275,40 @@
           {% comment %} modal box end {% endcomment %}
         </div>
       {%- endfor -%}
-      <div id="product-modal" class="product-modal hidden">
-        <div class="product-modal-content">
-          <span class="product-close">&times;</span>
-          <div class="modal-content">
-            <div class="modal-left">
-              <img
-                id="modal-image"
-                src="{{ 'placeholder.png' | asset_url }}"
-                width="400"
-                height="400"
-                alt="Product image"
-              >
-            </div>
-            <div class="modal-right">
-              <h2 id="modal-title" class="modal-title"></h2>
-              <p id="modal-price" class="modal-price"></p>
-              <p id="modal-description" class="modal-description"></p>
-            </div>
+    </div>
+    <div id="product-modal" class="product-modal hidden">
+      <div class="product-modal-content">
+        <span class="product-close">&times;</span>
+        <div class="modal-content">
+          <div class="modal-left">
+            <img
+              id="modal-image"
+              src="{{ 'placeholder.png' | asset_url }}"
+              width="400"
+              height="400"
+              alt="Product image"
+            >
           </div>
-          <div class="modal-bottom">
-            <div id="modal-variants" class="modal-variants"></div>
-
-            <a href="" id="modal-add-cart" class="add-to-cart-modal gift-guide-btn btn-color-fill" data-color="#FFF544">
-              <span class="overlay"></span>
-              <span class="btn-content">
-                Add to Cart
-                <div class="btn-icon">
-                  {% render 'icon-arrow' %}
-                </div>
-              </span>
-            </a>
+          <div class="modal-right">
+            <h2 id="modal-title" class="modal-title"></h2>
+            <p id="modal-price" class="modal-price"></p>
+            <p id="modal-description" class="modal-description"></p>
           </div>
-          <p></p>
         </div>
+        <div class="modal-bottom">
+          <div id="modal-variants" class="modal-variants"></div>
+
+          <a href="" id="modal-add-cart" class="add-to-cart-modal gift-guide-btn btn-color-fill" data-color="#FFF544">
+            <span class="overlay"></span>
+            <span class="btn-content">
+              Add to Cart
+              <div class="btn-icon">
+                {% render 'icon-arrow' %}
+              </div>
+            </span>
+          </a>
+        </div>
+        <p></p>
       </div>
     </div>
   </div>
