@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             // Animate on hover
             btn.addEventListener("mouseenter", () => {
+                 gsap.killTweensOf(overlay);
                 gsap.to(overlay, {
                     x: '100%',
                     duration: 0.5,
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             btn.addEventListener("mouseleave", () => {
+                gsap.killTweensOf(overlay);
                 gsap.set(overlay, {
                     x: '-100%',
                     duration: 0.5,
