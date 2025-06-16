@@ -378,11 +378,19 @@
         padding: 20px 0px;
     }
     .mobile-view .top-bar .header-announcement {
-    font-size: 16px;
-    color: #000;
-    font-weight: 400;
-    padding: 0px 0px 16px 0px;
-}
+        font-size: 16px;
+        color: #000;
+        font-weight: 400;
+        padding: 0px 0px 16px 0px;
+    }
+    .mobile-view .menu-container {
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-view .menu-container.active {
+      display: block;
+    }
   }
 </style>
 
