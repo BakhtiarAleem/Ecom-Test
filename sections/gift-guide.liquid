@@ -77,6 +77,13 @@
   </div>
   <div class="mobile-view">
     <div class="top-bar">
+      <div class="top-menu-bar">
+      <div class="menu-icon open">
+        {% render 'icon-menu' %}
+      </div>
+      <div class="menu-icon close">
+        {% render 'icon-close' %}
+      </div>
       <div class="logo">
         <img
           src="{{ section.settings.logo | image_url: width: 890 }}"
@@ -85,7 +92,7 @@
           height="{{ section.settings.logo.height | default: 420 }}"
         >
       </div>
-
+    </div>
       <div class="menu-container">
         {% comment %} calling Announcement Bar Data {% endcomment %}
         {%- if section.settings.announcement_label != '' -%}
@@ -122,7 +129,10 @@
               width="{{ section.settings.image_bottom.width | default: 890 }}"
               height="{{ section.settings.image_bottom.height | default: 420 }}"
             >
-            <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
+          </div>
+        {% endif %}
+      </div>
+              <a href="{{ section.settings.buttonLink }}" class="gift-guide-btn btn-color-fill" data-color="#FFF544">
               <span class="overlay"></span>
               <span class="btn-content">
                 {{ section.settings.buttonLabel }}
@@ -131,9 +141,6 @@
                 </div>
               </span>
             </a>
-          </div>
-        {% endif %}
-      </div>
       {% if section.settings.bottom_text_mobile != '' %}
         <div class="gift-guide-bottom-announcement">
           <h4>{{ section.settings.bottom_text_mobile }}</h4>
@@ -352,9 +359,30 @@
       object-fit: cover;
     }
     .mobile-view .gift-guide-btn {
-      position: absolute;
-      bottom: 20px;
+        position: absolute;
+        bottom: 14%;
+        left: 25%;
     }
+    .mobile-view .top-bar{
+        padding: 12px 40px;
+        position: relative;
+    }
+    .mobile-view .top-bar .menu-container {
+        position: absolute;
+        top: 100%;
+        z-index: 9;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        background-color: #F2F2F2;
+        padding: 20px 0px;
+    }
+    .mobile-view .top-bar .header-announcement {
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    padding: 0px 0px 16px 0px;
+}
   }
 </style>
 
