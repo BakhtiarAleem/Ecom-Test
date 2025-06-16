@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const featured_media = button.dataset.image;
         const url = button.dataset.url;
         const variantsData = JSON.parse(button.dataset.variants);
-
+        console.log("Variant all:", variantsData);
 //         variantsData.forEach(variant => {
 //   console.log("Variant title:", variant.title);
 //   console.log("Variant ID:", variant.id);
