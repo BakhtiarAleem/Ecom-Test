@@ -144,6 +144,40 @@ margin-bottom: 0px;
     -webkit-appearance: none;
 }
 
+
+.custom-grid-section .product-modal-content .modal-variants .variant-color-wrapper {
+  margin-top: 10px;
+}
+
+.custom-grid-section .product-modal-content .modal-variants .color-button-group {
+  display: flex;
+  border: 1px solid #000;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.custom-grid-section .product-modal-content .modal-variants .color-button-group input[type="radio"] {
+  display: none;
+}
+
+.custom-grid-section .product-modal-content .modal-variants .color-option {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border-left: 1px solid #000;
+}
+
+.custom-grid-section .product-modal-content .modal-variants .color-option:first-of-type {
+  border-left: none;
+}
+
+.custom-grid-section .product-modal-content .modal-variants .color-button-group input[type="radio"]:checked + .color-option {
+  background-color: #000;
+  color: #fff;
+}
+
         @media screen and (min-width: 750px) {
           .section-{{ section.id }}-padding {
             padding-top: {{ section.settings.padding_top }}px;
