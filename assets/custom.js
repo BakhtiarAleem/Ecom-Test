@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Custom Grid Modal Data
 
 
-    let variantsData = [];
+    let variantList  = [];
 
     const modal = document.getElementById("product-modal");
     const closeBtn = modal.querySelector(".product-close");
@@ -105,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const description = button.dataset.description;
         const featured_media = button.dataset.image;
         const url = button.dataset.url;
-        variantsData = JSON.parse(button.dataset.variants);
+        variantList  = JSON.parse(button.dataset.variants);
+         const optionSchema = JSON.parse(button.dataset.options);
         variantsEl.innerHTML = '';
 
         titleEl.textContent = title;
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         imageEl.src = featured_media
         urlEl.href = url
 
- variantsData.forEach(variant => {
+ optionSchema.forEach(variant => {
 
       if (variant.name.toLowerCase() === "color") {
         const colorWrapper = document.createElement("div");
@@ -204,9 +205,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const selectedColor = document.querySelector("input[name='color']:checked")?.value;
       console.log('selectedSize', selectedSize)
       console.log('selectedColor', selectedColor)
-      console.log('variantsData present', variantsData)
+      console.log('variantList  present', variantList)
 
-      const matchedVariant = variantsData.find(v => {
+      const matchedVariant = variantList.find(v => {
         return (
           (v.option1 === selectedSize && v.option2 === selectedColor) ||
           (v.option1 === selectedColor && v.option2 === selectedSize)

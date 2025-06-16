@@ -242,7 +242,8 @@ margin-bottom: 0px;
   data-description="{{ product.description }}"
   data-image="{{ product.featured_media | image_url: width: 533 }}"
   data-url="{{ product.url }}"
-  data-variants="{{ product.options_with_values | json | escape }}"
+  data-options="{{ product.options_with_values | json | escape }}"
+  data-variants="{{ product.variants | json | escape }}"
 >
   View More
 </button>
