@@ -264,28 +264,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // mobile menu
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuContainer = document.querySelector(".menu-container");
-        const openMenuBtn = document.querySelector(".menu-icon.open");
-        const closeMenuBtn = document.querySelector(".menu-icon.close");
+    const menuContainer = document.querySelector(".menu-container");
+    const openMenuBtn = document.querySelector(".menu-icon.open");
+    const closeMenuBtn = document.querySelector(".menu-icon.close");
 
-        
-        closeMenuBtn.style.display = "none";
+    
+    closeMenuBtn.style.display = "none";
 
-        openMenuBtn.addEventListener("click", () => {
-            menuContainer.classList.add("active");
-            openMenuBtn.style.display = "none";
-            closeMenuBtn.style.display = "block";
-        });
-
-        closeMenuBtn.addEventListener("click", () => {
-            menuContainer.classList.remove("active");
-            openMenuBtn.style.display = "block";
-            closeMenuBtn.style.display = "none";
-        });
+    openMenuBtn.addEventListener("click", () => {
+        menuContainer.classList.add("active");
+        openMenuBtn.style.display = "none";
+        closeMenuBtn.style.display = "block";
     });
 
-
+    closeMenuBtn.addEventListener("click", () => {
+        menuContainer.classList.remove("active");
+        openMenuBtn.style.display = "block";
+        closeMenuBtn.style.display = "none";
+    });
 
 
 });
