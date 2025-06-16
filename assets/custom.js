@@ -192,4 +192,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    // Add to Cart Ajax
+    const addToCartBtn = document.getElementById("modal-add-cart");
+    addToCartBtn.onclick = (e) => {
+      e.preventDefault();
+
+      const selectedSize = document.querySelector("select[name='size']")?.value;
+      const selectedColor = document.querySelector("input[name='color']:checked")?.value;
+
+      const matchedVariant = variantsData.find(v => {
+        return (
+          (v.option1 === selectedSize && v.option2 === selectedColor) ||
+          (v.option1 === selectedColor && v.option2 === selectedSize)
+        );
+      });
+
+      if (!matchedVariant) {
+        alert("Variant not found. Please select valid options.");
+        return;
+      }
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          id: matchedVariant.id,
+          quantity: 1
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Added to cart:', data);
+        alert('Product added to cart!');
+      })
+      .catch(err => {
+        console.error('Add to cart error:', err);
+        alert('Error adding product to cart.');
+      });
+    };
+
+
+
+
 });
